@@ -24,6 +24,8 @@ public class MainActivityPresenterImpl implements MainActivityPresenter, Downloa
         mMainView.setEnabledButton(false);
         mMainView.showProgressBar();
         mMainView.showMessage("Downloading data");
+
+        mDataDownloadInteractor.downloadData(this);
     }
 
     @Override

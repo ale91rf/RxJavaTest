@@ -9,9 +9,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alefernandez.rxjavatest.R;
+import com.alefernandez.rxjavatest.interactor.DataDownloadInteractor;
 import com.alefernandez.rxjavatest.model.Post;
+import com.alefernandez.rxjavatest.networking.RestAPI;
+import com.alefernandez.rxjavatest.networking.RxJavaTestAPI;
+import com.alefernandez.rxjavatest.presenter.MainActivityPresenterImpl;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements MainView{
 
@@ -27,10 +33,24 @@ public class MainActivity extends AppCompatActivity implements MainView{
     @Bind(R.id.lblBody)
     TextView mLblBody;
 
+    MainActivityPresenterImpl mPresenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        injectDependencies();
+        ButterKnife.bind(this);
+    }
+
+    private void injectDependencies() {
+        RestAPI lApiRest = RxJavaTestAPI.getApiInterface(this);
+        DataDownloadInteractor lDataDownloadInteractor = new DataDownloadInteractor(lApiRest);
+        mPresenter = new MainActivityPresenterImpl(lDataDownloadInteractor, this);
+    }
+
+    @OnClick(R.id.btnStart)
+    public void btnClicked() {
+        mPresenter.getDataFromAPI();
     }
 
     @Override
