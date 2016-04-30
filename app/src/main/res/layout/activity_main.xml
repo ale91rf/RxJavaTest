@@ -9,8 +9,61 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ui.MainActivity">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        android:id="@+id/btnStart"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/pBarDownloading"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:indeterminate="false" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:id="@+id/lbl1"
+        android:layout_below="@+id/btnStart"
+        android:layout_alignLeft="@+id/btnStart"
+        android:layout_marginTop="15dp"
+        android:text="@string/title"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblTitle"
+        android:layout_toRightOf="@+id/lbl1"
+        android:layout_alignBaseline="@+id/lbl1"
+        android:layout_marginLeft="10dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lbl2"
+        android:layout_below="@+id/lblTitle"
+        android:layout_alignLeft="@+id/btnStart"
+        android:layout_marginTop="15dp"
+        android:text="@string/body"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblBody"
+        android:layout_toRightOf="@+id/lbl2"
+        android:layout_alignBaseline="@+id/lbl2"
+        android:layout_marginLeft="10dp"/>
+
 </RelativeLayout>
