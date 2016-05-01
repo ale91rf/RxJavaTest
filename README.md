@@ -2,7 +2,7 @@
 
 Android App which downloads a JSON from a API and shows the data.
 
-### MVP + RxJava + Retrofit + Retrolambda 
+### MVP + RxJava + Retrofit2 + Retrolambda 
 
 ### Dependencies
 * http://square.github.io/retrofit/
